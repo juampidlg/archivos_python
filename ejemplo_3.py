@@ -26,6 +26,21 @@ def altura_promedio(genero):
     #   el promedio al terminar el bucle
 
     # --- Comience aquí a desarrollar su código ---
+    with open ('alturas.csv')as csvfile:
+        alturas = list(csv.DictReader(csvfile))
+        alturas_acum = 0
+        cantidad_alturas = 0
+        for i in range(len(alturas)):
+            if alturas[i]['genero']== genero:
+                alturas_acum += float(alturas[i]['altura'])
+                cantidad_alturas += 1
+    print(f"La sumatoria de alturas es: {alturas_acum}")
+    print(f"La cantidad de personas del genero {genero} es: {cantidad_alturas}")
+    promedio = alturas_acum / cantidad_alturas
+    print(f"El promedio de alturas para el genero: {genero} es de : {promedio}")
+    
+
+
 
 
 if __name__ == '__main__':
